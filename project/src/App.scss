@@ -1,0 +1,582 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+$green: #1BAE70;
+$black: #000;
+$white: #fff;
+$lightGreen: #5E9E4D;
+$lighterGreen: #80CA6C;
+$limeGreen: #04AA94;
+$white: #fff;
+$mango: #FFC973;
+$orange: #A64C0F;
+$darkerGray: #333333; 
+$darkerGray: #0B0B0B;
+$darkingGray: #333333; // Example color, replace with your actual value
+$white: #ffffff; // Example color, replace with your actual value
+$lightGray: #7F807E;
+$lightingGrey: #E6E6E6;
+$lightestGray: #D9D9D9;
+$lighterGray: #EBEBEB;
+$darkGreen: #3B6330;
+$hover-scale: 1.1;
+$display-duration: 8s; // Time each image stays fully visible
+$transition-duration: 3s; // Time taken for the sliding transition
+$total-duration: $display-duration + $transition-duration; // Total time for one image cycle
+
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-family: "Open Sans";
+}
+
+* {
+  box-sizing: border-box;
+  transition: all 0.25s ease;
+}
+
+::selection {
+  background-color: $green;
+  color: $white;
+}
+
+a {
+  text-decoration: none;
+}
+
+// common class strt
+
+
+// Mixin for hover scaling
+@mixin hover-scale($duration: 0.3s, $ease: ease-in-out) {
+  transition: transform $duration $ease;
+  &:hover {
+    transform: scale($hover-scale);
+  }
+}
+
+@mixin disFlex ($dis: flex, $justCont: space-between) {
+  display: $dis;
+  justify-content: $justCont;
+}
+
+.displyFlx {
+  @include disFlex;
+}
+
+section {
+  padding: 70px;
+}
+
+@mixin wrapper ($wid: 100%, $marg: 0 auto, $maxWid: 1100px) {
+  width: $wid;
+  margin: $marg;
+  max-width: $maxWid;
+}
+
+.wrap {
+  @include wrapper;
+}
+
+// common class end
+
+header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: $white;
+  background-color: $white;
+  height: 60px;
+  width: 100%;
+  img{
+    margin: 15px 55px;
+    height: 45px;
+
+  }
+  a{
+    margin-right: 20px;
+    font-size: larger;
+    color: $black;
+    text-decoration: none;
+  }
+}
+
+.brands{
+  background-color: cornflowerblue;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.brand-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);  // 5 images per row
+  grid-template-rows: repeat(8, auto);    // 8 images per column
+  gap: 20px;  // Space between images
+  padding: 20px;
+}
+
+.brand-item {
+  display: block;
+  img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+  }
+
+  &:hover img {
+      transform: scale(1.05);  // Slight zoom effect on hover
+  }
+}
+
+
+}
+
+.home{
+  
+// Styling for the slogan container
+// .slogan {
+//   display: flex; // Flexbox for alignment
+//   justify-content: center; // Center horizontally
+//   align-items: center; // Center vertically
+//   background-color: $darkingGray; // Dark gray background
+//   height: 55px; // Fixed height
+//   padding: 0 20px; // Horizontal padding for responsiveness
+
+//   // Styling for the heading inside the slogan
+//   h1 {
+//     margin: 0; // Remove default margins
+//     font-size: 1.5rem; // Adjust font size for visibility
+//     font-weight: bold; // Make the text bold
+//     color: $white; // White text color
+//     text-align: center; // Center text within the container
+//   }
+// }
+
+section.heroBanner {
+  display: flex;
+  justify-content: center;
+
+  .slider-container {
+    position: relative;
+    width: 80%;
+    // max-width: 800px;
+    // margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    .slider {
+        display: flex;
+        width: 100%;
+        animation: slide 21s infinite;
+
+        .slide {
+            min-width: 100%;
+            transition: transform 0.5s ease-in-out;
+
+            img {
+                height: 680px;
+                width: 100%;
+                display: block;
+            }
+        }
+    }
+}
+
+// Keyframe Animation
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    14.28% {
+        transform: translateX(0);
+    }
+    28.56% {
+        transform: translateX(-100%);
+    }
+    42.84% {
+        transform: translateX(-200%);
+    }
+    57.12% {
+        transform: translateX(-300%);
+    }
+    71.4% {
+        transform: translateX(-400%);
+    }
+    85.68% {
+        transform: translateX(-500%);
+    }
+    100% {
+        transform: translateX(-600%);
+    }
+}
+
+}
+
+section.brands {
+  background-color: $lightingGrey;
+
+  .info {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    h1 {
+      font-weight: 300;
+      font-size: 45px;
+      color: $darkerGray;
+      text-decoration: underline;
+    }
+
+    a {
+      margin-top: 9px;
+      font-size: 20px;
+      color: $green;
+      text-decoration: underline;
+      margin-bottom: 10px;
+    }
+  }
+
+  .imgs {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    a {
+      img {
+        margin-top: 5px;
+        height: 250px;
+        width: 250px;
+      }
+    }
+  }
+}
+
+section.mensSec {
+  position: relative;
+  .child-first-child{
+    img{
+      margin-left: -40px;
+      height: 700px;
+      width: 100%;
+    }
+  }
+  .parent {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -45px;
+    .btn{
+      .center-text {
+        position: absolute;
+        padding: 2px 2px;
+        width: 150px;
+        top: 42%;
+        left: 28%;
+        transform: translate(-50%, -50%);
+        color: $white;
+        background-color: $green;
+        font-size: 25px;  // Adjust as needed
+        font-weight: bold;
+        text-align: center;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);  // Optional shadow for better visibility
+      }
+    }
+  }
+  .centered-text {
+    position: absolute;
+    top: 35%;
+    left: 28%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 35px;  // Adjust as needed
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);  // Optional shadow for better visibility
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); // Two columns
+    gap: 15px;
+    width: 47%;  // You can adjust this value as needed
+  }
+
+  .grid-box {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    width: 100%;  // Ensure the grid box takes full width of its column
+
+    .prices {
+      .orgprice {
+        fill: $lightGray;
+        color: $lightGray;
+        text-decoration: line-through;
+      }
+    }
+
+    svg {
+      height: 10px;
+      width: 10px;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  .grid-box img {
+    margin-top: -20px;
+    width: 100%;
+    height: 220px;  // Adjust the height as needed
+    object-fit: contain;
+    border-radius: 8px;
+  }
+
+  .grid-box .description {
+    font-size: 0.9em;
+    margin: 5px 0;
+    color: #333;
+  }
+}
+
+/* Section container */
+section.womensSec {
+  position: relative;
+  .parent {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -45px;
+    .child-first-child{
+      img{
+      margin-left: -40px;
+      height: 700px;
+      width: 100%;
+      filter: blur(3px);
+      }
+    }
+    .btn{
+      .center-text {
+        position: absolute;
+        padding: 2px 2px;
+        width: 150px;
+        top: 48%;
+        left:26%;
+        transform: translate(-50%, -50%);
+        color: $white;
+        background-color: $green;
+        font-size: 25px;  // Adjust as needed
+        font-weight: bold;
+        text-align: center;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);  // Optional shadow for better visibility
+      }
+    }
+  }
+  .centered-text {
+    position: absolute;
+    top: 40%;
+    left: 28%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 35px;  // Adjust as needed
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);  // Optional shadow for better visibility
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); // Two columns
+    gap: 15px;
+    width: 47%;  // You can adjust this value as needed
+  }
+
+  .grid-box {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    width: 100%;  // Ensure the grid box takes full width of its column
+
+    .prices {
+      .orgprice {
+        fill: $lightGray;
+        color: $lightGray;
+        text-decoration: line-through;
+      }
+    }
+
+    svg {
+      height: 10px;
+      width: 10px;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  .grid-box img {
+    margin-top: -20px;
+    width: 100%;
+    height: 220px;  // Adjust the height as needed
+    object-fit: contain;
+    border-radius: 8px;
+  }
+
+  .grid-box .description {
+    font-size: 0.9em;
+    margin: 5px 0;
+    color: #333;
+  }
+}
+}
+
+.MensWatches{
+  background-color: #04AA94;
+
+// Heading
+h2 {
+  font-size: 32px;
+  font-weight: bold;
+  color: coral;
+  padding: 20px 85px;
+  border-bottom: #fff 2px solid;
+}
+
+// Grid Container
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); // Responsive grid
+  gap: 20px;
+  padding: 20px;
+  max-width: 100%;
+  margin: 15px auto;
+}
+
+// Grid Item
+.grid-item {
+  background-color: $white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  height: 350px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  @include hover-scale(0.3s, ease-in-out); // Apply hover mixin
+}
+
+// Image Styling
+.grid-item img {
+  max-width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  object-fit: contain; // Prevents distortion
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05); // Zoom-in effect on hover
+  }
+}
+
+
+// Description Text
+.description {
+  font-size: 16px;
+  color: #333;
+  margin: 10px 0;
+}
+
+// Price Styling
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #e91e63;
+}
+
+// Responsive Breakpoints
+@media (max-width: 768px) {
+  h2 {
+    font-size: 24px;
+  }
+
+  .grid-item {
+    height: 300px;
+  }
+
+  .price {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 20px;
+  }
+
+  .grid-item {
+    height: 250px;
+  }
+
+  .price {
+    font-size: 14px;
+  }
+}
+ 
+}
+
+footer{
+  .whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    
+    .whatsapp-line {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background-color: #128C7E;
+      transition: width 0.3s ease;
+    }
+  
+    &:hover .whatsapp-line {
+      width: 50px;
+    }
+  
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  
+}
